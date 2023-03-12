@@ -53,19 +53,7 @@ export default function AllStudents({setId}) {
 
     return(
 
-        // students.map((students, index) =>{
-        //     // console.log(students);
-              
-        //     return(
 
-        //         <div key={students._id}>
-   
-        //             <h2 style={{color: "blue"}}>name : {students.name}</h2>
-        //             <h3 >age : {students.age}</h3>
-        //             <h3>gender : {students.gender}</h3> <hr />
-  
-        //         </div>
-        //     )
                 <div class="container">
 
 
@@ -74,6 +62,7 @@ export default function AllStudents({setId}) {
                         <th>Name</th>
                         <th>Age</th>
                         <th>Gender</th>
+                        <th>Class</th>
                         <th>Action</th>
 
                         <tr style={{fontSize : "32px"}}>
@@ -97,12 +86,19 @@ export default function AllStudents({setId}) {
                             </td>
 
                             <td>
+                                {students.map(post => ( 
+                                    <p key={post._id}>{post.classes}</p>
+                                ))}
+                                
+                            </td>
+
+                            <td>
                                  {students.map(post => ( 
                                     <p key={post._id}>
                                         
-                                        {/* <Link to={"edit/"+post._id}> */}
+                                        
                                         <button type="button" class="btn btn-primary" onClick={(e) => routeChange(post._id, e)}>Edit</button>
-                                        {/* </Link> */}
+                                        
                                         <span>   </span>
                                         <button type="button" class="btn btn-danger" onClick={(e) => deleteRow(post._id, e)}>Delete</button>
 

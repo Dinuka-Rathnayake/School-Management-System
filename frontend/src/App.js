@@ -24,6 +24,8 @@ function App() {
             <Route path="counter"  element={<Counter />} />
             <Route path="/" exact element={<AllStudents setId={setId} />} />
             <Route path="edit/" exact element={ <EditStudents selectId={selectId} />} />
+
+            {/* <Route path="home" element={<Home />} /> */}
           </Routes>
         
 

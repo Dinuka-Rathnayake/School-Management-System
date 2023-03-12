@@ -9,6 +9,7 @@ export default function  editStudent({selectId}) {
     const [names, setName] = useState("");
     const [ages, setAge] = useState("");
     const [genders,setGender] = useState("");
+    const [classes, setClasses] = useState("");
     const[id, setID] = useState(iD);
     const [newStudent, setNewStudent] = useState([])
     const [newUpdateStudent, setNewUpdateStudent] = useState({})
@@ -17,14 +18,16 @@ export default function  editStudent({selectId}) {
         
         axios.get(`http://localhost:8070/student/get/${id}`).then((res) =>{
             setNewStudent(res.data.student);
-             setID(id)
-             console.log(res.data.student.name)
-             const newName = res.data.student.name
-             console.log(newName)
-             setName(newName)
-             setAge(res.data.student.age)
-             setGender(res.data.student.gender)
-             
+            setID(id)
+            console.log(res.data.student.name)
+            const newName = res.data.student.name
+            console.log(newName)
+            setName(newName)
+            setAge(res.data.student.age)
+            setGender(res.data.student.gender)
+
+            console.log(res.data.student.classes)
+            setClasses(res.data.student.classes)
 
         }).catch((err) => {
             alert(err.message);
@@ -33,9 +36,7 @@ export default function  editStudent({selectId}) {
         
     
     },[])
-    // setName(newStudent.name)
-    // setName(newStudent.age)
-    // setName(newStudent.gender)
+
 
 
     if (!newStudent) {
@@ -48,7 +49,7 @@ export default function  editStudent({selectId}) {
     function updateUser(e) {
         e.preventDefault();
         const updateStudent = {
-            names, ages, genders
+            names, ages, genders, classes
         }
         setNewUpdateStudent(updateStudent);
         if (!newUpdateStudent) {
@@ -78,6 +79,7 @@ export default function  editStudent({selectId}) {
             {console.log("this is " + names)}
             {console.log("this is " + ages)}
             {console.log("this is " + genders)}
+            {console.log("this is " + classes)}
 
            {/* <h2>{newStudent.name}</h2> */}
             
@@ -104,6 +106,13 @@ export default function  editStudent({selectId}) {
                 <label for="gender" className="form-label">Student Gender</label>
                 <input type="text" className="form-control" id="gender" placeholder="enter student gender.." value={genders} onChange={(e) => {
                     setGender(e.target.value);
+                }} />
+            </div>
+
+            <div className="mb-3">
+                <label for="classes" className="form-label">Student's Class</label>
+                <input type="text" className="form-control" id="classes" placeholder="enter student class.." value={classes} onChange={(e) => {
+                    setClasses(e.target.value);
                 }} />
             </div>
 

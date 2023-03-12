@@ -7,12 +7,14 @@ router.route("/add").post((req, res) =>{
     const name = req.body.name; //assign the data which are comming from frontend to variables 
     const age = req.body.age;
     const gender = req.body.gender;
+    const classes = req.body.classes;
 
     // create object of Student model
     const newStudent = new Student({
         name,
         age,
-        gender
+        gender,
+        classes,
     })
 
     //pass the object to mongodb trough Student model
@@ -42,12 +44,14 @@ router.route("/update/:id").put(async (req, res) =>{
     const name = req.body.names;
     const age = req.body.ages;
     const gender = req.body.genders;
+    const classes = req.body.classes;
     // console.dir(names);
 
     const updateStudent = {
         name,
         age,
-        gender
+        gender,
+        classes
     }
     
     const update = await Student.findByIdAndUpdate(userId, updateStudent).then(() => {

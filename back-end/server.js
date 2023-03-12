@@ -22,10 +22,9 @@ const URL = process.env.MONGODB_URL;
 
 //6.connecet Database
 mongoose.connect(URL, {
-    // useCreateIndex: true,
     useNewUrlParser : true,
     useUnifiedTopology: false,
-    // useFindAndModify: false
+    
 })
 
 //7.make conection with database

@@ -6,12 +6,13 @@ export default function AddStudents() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [gender,setGender] = useState("");
-
+    const [classes,setClasses] = useState("");
+ 
     function sendData(e) {
          
         e.preventDefault();
         const newStudent = {
-            name, age, gender       
+            name, age, gender, classes       
         }
         
     
@@ -47,6 +48,13 @@ export default function AddStudents() {
                 <label for="gender" className="form-label">Student Gender</label>
                 <input type="text" className="form-control" id="gender" placeholder="enter student gender.." onChange={(e) => {
                     setGender(e.target.value);
+                }} />
+            </div>
+
+            <div className="mb-3">
+                <label for="classes" className="form-label">Student's Class</label>
+                <input type="text" className="form-control" id="classes" placeholder="enter student class.." onChange={(e) => {
+                    setClasses(e.target.value);
                 }} />
             </div>
 

@@ -9,6 +9,11 @@ const studentSchema = new Schema({
         required : true
     },
 
+    classes : {
+        type : String,
+        required : true
+    },
+
     age : {
         type : Number,
         required : true
